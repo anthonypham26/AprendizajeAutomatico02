@@ -63,6 +63,7 @@ En el aprendizaje automático clásico, existen varios tipos de métodos de apre
 El aprendizaje supervisado utiliza **datos etiquetados**, lo que significa que cada ejemplo de entrenamiento incluye tanto características de entrada como una salida correcta (etiqueta).
 
 📌 **Objetivo:** Aprender una función que asigne entradas a salidas.
+
 📌 **Ejemplo:** Predecir el precio de las viviendas basándose en características como el tamaño, la ubicación y el número de habitaciones.
 
 Los algoritmos de aprendizaje supervisado se dividen en dos categorías según el tipo de salida:
@@ -91,7 +92,9 @@ El aprendizaje no supervisado funciona con "datos no etiquetados". El algoritmo 
 <kbd><img src="images/Supervised-and-unsupervised.png" style="border:1px solid grey; border-radius:10px;"></kbd>
 
 📌 **Objetivo:** Descubrir estructuras o relaciones ocultas en los datos
+
 📌 **Ejemplo:** Segmentar a los clientes en diferentes grupos según su comportamiento de compra
+
 📌 **¿Cómo reconocerlo?** No hay una columna de "objetivo" o el objetivo es agrupar, comprimir o resumir los datos
 
 El aprendizaje no supervisado incluye las siguientes categorías:
@@ -154,7 +157,7 @@ Es común probar varios modelos y comparar su rendimiento antes de elegir el mej
 
 ---
 
-### Example: K-Nearest Neighbors Classifier
+### Ejemplo: K-Nearest Neighbors Classifier
 
 ```python
 from sklearn.model_selection import train_test_split
@@ -197,6 +200,7 @@ Aquí entran en juego otras dos métricas:
   Un alto recordatorio significa menos **spam omitido**.
 
 📌 **Si no hay problema con no detectar el spam, pero marcar correos electrónicos reales como spam es un problema, opta por una alta precisión.**
+
 📌 **Si detectar todo el spam es fundamental (incluso si algunos correos electrónicos reales están marcados incorrectamente), opta por una alta capacidad de recuperación.**
 
 
@@ -213,7 +217,9 @@ Utilizamos estas métricas para medir la desviación de las predicciones:
 - **Puntuación R²** = Cuantifica qué tan bien se alinean las predicciones de un modelo de regresión con los datos reales (cuanto más cerca de 1, mejor).
 
 📌 **Si los errores pequeños son aceptables**, use MAE.
+
 📌 **Si los errores grandes son realmente graves**, use MSE o RMSE para penalizarlos más.
+
 📌 **Si desea saber cuánta varianza explica su modelo**, use R².
 
 El objetivo es elegir siempre la métrica que coincida con el **impacto real** de sus predicciones. Un buen modelo en un caso puede no ser adecuado para otro, dependiendo de qué errores sean más importantes.
