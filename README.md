@@ -5,15 +5,15 @@
 1. [Resumen](#1-resumen)
 2. [Objetivos de aprendizaje](#2-objetivos-de-aprendizaje)
 3. [Descripción general del aprendizaje automático clásico](#3-descripción-general-del-aprendizaje-automático-clásico)
-- [Aprendizaje supervisado](#aprendizaje-supervisado)
-- [Aprendizaje no supervisado](#aprendizaje-no-supervisado)
+    - [Aprendizaje supervisado](#aprendizaje-supervisado)
+    - [Aprendizaje no supervisado](#aprendizaje-no-supervisado)
 4. [Entrenamiento de un modelo simple de aprendizaje automático](#4-entrenamiento-de-un-modelo-simple-de-aprendizaje-automático)
 5. [Métricas de rendimiento](#5-métricas-de-rendimiento)
 6. [Validación cruzada](#6-validación-cruzada)
-7. [Evaluación del modelo y ajuste de hiperparámetros](#7-evaluación-del-modelo-ajuste-de-hiperparámetros)
-- [Evaluación del modelo](#evaluación-del-modelo)
-- [Ajuste de hiperparámetros](#ajuste-de-hiperparámetros)
-8. [Conclusión y Próximos pasos](#8-conclusión--próximos-pasos)
+7. [Evaluación del Modelo y Ajuste de Hiperparámetros](#7-evaluación-del-modelo-y-ajuste-de-hiperparámetros)
+    - [Evaluación del modelo](#evaluación-del-modelo)
+    - [Ajuste de hiperparámetros](#ajuste-de-hiperparámetros)
+8. [Conclusión y Próximos pasos](#8-conclusión-y-próximos-pasos)
 
 ## 1. Resumen
 
@@ -58,7 +58,7 @@ En el aprendizaje automático clásico, existen varios tipos de métodos de apre
 
 ---
 
-### Supervised Learning 
+### Aprendizaje supervisado 
 
 El aprendizaje supervisado utiliza **datos etiquetados**, lo que significa que cada ejemplo de entrenamiento incluye tanto características de entrada como una salida correcta (etiqueta).
 
@@ -84,7 +84,7 @@ Los algoritmos de aprendizaje supervisado se dividen en dos categorías según e
 - Random Forest Regressor  
 - k-Nearest Neighbors (k-NN) Regression
 
-### Unsupervised Learning
+### Aprendizaje no supervisado
 
 El aprendizaje no supervisado funciona con "datos no etiquetados". El algoritmo intenta encontrar patrones, agrupaciones o estructuras en los datos sin conocer de antemano el resultado correcto.
 
@@ -136,7 +136,7 @@ Todos estos algoritmos implican mucha matemática y razonamiento. Esta es una de
 
 **Aprendizaje por refuerzo:** implica que un modelo aprende interactuando con un entorno y recibiendo recompensas o penalizaciones. Aunque es menos común en el aprendizaje automático clásico, se utiliza ampliamente en áreas como la robótica, los agentes de videojuegos y los sistemas de recomendación.
 
-## 4. Entrenamiento de un modelo de aprendizaje automático simple
+## 4. Entrenamiento de un modelo simple de aprendizaje automático
 
 Ahora viene la parte divertida: ¡entrenar un modelo de aprendizaje automático!
 
@@ -360,7 +360,7 @@ print("Best Parameters:", grid.best_params_)
 print("Best Score:", grid.best_score_)
 ```
 
-## 8. Conclusión y próximos pasos
+## 8. Conclusión y Próximos pasos
 
 En este punto, has completado **todo el proceso de aprendizaje automático** de principio a fin:
 
