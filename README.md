@@ -32,8 +32,7 @@ Esta semana, iremos más allá de la preparación de datos y hablaremos sobre la
 - Cómo elegir y entrenar un modelo
 - Cómo evaluar el rendimiento del modelo utilizando las métricas adecuadas
 - Cómo usar la validación cruzada para garantizar resultados fiables
-- Cómo perfeccionar tu modelo mediante la optimización de hiperparámetros
-- Y, por último, cómo preparar tu modelo para su presentación o implementación
+- Y, por último cómo perfeccionar tu modelo mediante la optimización de hiperparámetros
 
 Al finalizar, comprenderás cómo convertir un proyecto desde datos sin procesar hasta un modelo de aprendizaje automático completamente entrenado y probado.
 
