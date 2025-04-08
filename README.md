@@ -1,82 +1,82 @@
-# Machine Learning Level 2 🚀
+# Aprendizaje Automático Nivel 2 🚀
 
-## Index
+## Índice
 
-1. [Recap](#1-recap)
-2. [Learning Objectives](#2-learning-objectives)
-3. [Classical Machine Learning Overview](#3-classical-machine-learning-overview)
-    - [Supervised Learning](#supervised-learning)
-    - [Unsupervised Learning](#unsupervised-learning)
-4. [Training a Simple ML Model](#4-training-a-simple-ml-model)
-5. [Performance Metrics](#5-performance-metrics)
-6. [Cross-Validation](#6-cross-validation)
-7. [Model Evaluation & Hyperparameter Tuning](#7-model-evaluation--hyperparameter-tuning)
-    - [Model Evaluation](#model-evaluation)
-    - [Hyperparameter Tuning](#hyperparameter-tuning)
-8. [Conclusion & Next Steps](#8-conclusion--next-steps)
+1. [Resumen](#1-resumen)
+2. [Objetivos de aprendizaje](#2-objetivos-de-aprendizaje)
+3. [Descripción general del aprendizaje automático clásico](#3-descripción-general-del-aprendizaje-automático-clásico)
+- [Aprendizaje supervisado](#aprendizaje-supervisado)
+- [Aprendizaje no supervisado](#aprendizaje-no-supervisado)
+4. [Entrenamiento de un modelo simple de aprendizaje automático](#4-entrenamiento-de-un-modelo-simple-de-aprendizaje-automático)
+5. [Métricas de rendimiento](#5-métricas-de-rendimiento)
+6. [Validación cruzada](#6-validación-cruzada)
+7. [Evaluación del modelo y ajuste de hiperparámetros](#7-evaluación-del-modelo-ajuste-de-hiperparámetros)
+- [Evaluación del modelo](#evaluación-del-modelo)
+- [Ajuste de hiperparámetros](#ajuste-de-hiperparámetros)
+8. [Conclusión y Próximos pasos](#8-conclusión--próximos-pasos)
 
-## 1. Recap
+## 1. Resumen
 
-In Level 1, we laid the foundation of machine learning by focusing on the early stages of any ML project—understanding what machine learning is and how to prepare data for modeling.
+En el Nivel 1, sentamos las bases del aprendizaje automático centrándonos en las etapas iniciales de cualquier proyecto de ML: comprender qué es el aprendizaje automático y cómo preparar los datos para el modelado.
 
-Last week, we explored:
+La semana pasada, exploramos:
 
-  - ✅ What is Machine Learning  
-  - ✅ How to clean and transform raw data into usable form  
-    - Working with CSV files, handling missing values, removing outliers, and basic data visualization  
-    - Scaling numerical features and encoding categorical variables  
-  - ✅ The importance of ethics, fairness, and human values in building responsible AI systems
+- ✅ ¿Qué es el aprendizaje automático?
+- ✅ Cómo depurar y transformar datos sin procesar en un formato utilizable
+  - Trabajo con archivos CSV, gestión de valores faltantes, eliminación de valores atípicos y visualización básica de datos
+  - Escalado de características numéricas y codificación de variables categóricas
+- ✅ La importancia de la ética, la equidad y los valores humanos en la construcción de sistemas de IA responsables
 
-This week, we’ll move beyond data preparation and talk about the rest of remaining stages of the machine learning pipeline.
+Esta semana, iremos más allá de la preparación de datos y hablaremos sobre las etapas restantes del proceso de aprendizaje automático.
 
-- How to choose and train a model  
-- How to evaluate model performance using the right metrics  
-- How to use cross-validation to ensure reliable results  
-- How to fine-tune your model using hyperparameter optimization  
-- And finally, how to prepare your model for presentation or deployment
+- Cómo elegir y entrenar un modelo
+- Cómo evaluar el rendimiento del modelo utilizando las métricas adecuadas
+- Cómo usar la validación cruzada para garantizar resultados fiables
+- Cómo perfeccionar tu modelo mediante la optimización de hiperparámetros
+- Y, por último, cómo preparar tu modelo para su presentación o implementación
 
-By the end, you’ll understand how to take a project from raw data all the way to a fully trained and tested machine learning model.
+Al finalizar, comprenderás cómo convertir un proyecto desde datos sin procesar hasta un modelo de aprendizaje automático completamente entrenado y probado.
 
-## 2. Learning Objectives
+## 2. Objetivos de aprendizaje
 
-- Understand basic ML model categories  
-- Distinguish between regression and classification  
-- Recognize unsupervised learning problems  
-- Train and evaluate a simple model  
-- Know what cross-validation is and why it matters  
+- Comprender las categorías básicas de los modelos de aprendizaje automático
+- Distinguir entre regresión y clasificación
+- Reconocer problemas de aprendizaje no supervisado
+- Entrenar y evaluar un modelo simple
+- Entender qué es la validación cruzada y por qué es importante
 
 
-## 3. Classical Machine Learning Overview
+## 3. Descripción general del aprendizaje automático clásico
 
-Classical Machine Learning refers to a group of foundational algorithms and techniques that were developed before rapid growth of deep learning and neural networks. These methods are still widely used today because they are fast, interpretable, and effective for solving many real-world problems.
+El aprendizaje automático clásico se refiere a un grupo de algoritmos y técnicas fundamentales que se desarrollaron antes del rápido crecimiento del aprendizaje profundo y las redes neuronales. Estos métodos se siguen utilizando ampliamente hoy en día gracias a su rapidez, fácil interpretación y eficacia para resolver numerosos problemas del mundo real.
 
 <kbd><img src="images/SupervisedvsUnsupervised.webp" style="border:1px solid grey; border-radius:10px;"></kbd>
 
-**Types of Learning in Classical Machine Learning:**
+**Tipos de aprendizaje en el aprendizaje automático clásico:**
 
-In Classical Machine Learning, there are a few types of learning methods. The two most common are **Supervised Learning** and **Unsupervised Learning**, but others like **Semi-Supervised** and **Reinforcement Learning** also exist and play their own important roles in specific scenarios.
+En el aprendizaje automático clásico, existen varios tipos de métodos de aprendizaje. Los dos más comunes son el **Supervised Learning** y el **Unsupervised Learning**, pero también existen otros, como el **Semi-Supervised** y el **Reinforcement Learning**, que desempeñan un papel importante en situaciones específicas.
 
 ---
 
 ### Supervised Learning 
 
-Supervised learning uses **labeled data**, meaning each training example includes both input features and a correct output (label).
+El aprendizaje supervisado utiliza **datos etiquetados**, lo que significa que cada ejemplo de entrenamiento incluye tanto características de entrada como una salida correcta (etiqueta).
 
-📌 **Goal:** Learn a function that maps inputs to outputs  
-📌 **Example:** Predicting house prices based on features like size, location, and number of rooms
+📌 **Objetivo:** Aprender una función que asigne entradas a salidas.
+📌 **Ejemplo:** Predecir el precio de las viviendas basándose en características como el tamaño, la ubicación y el número de habitaciones.
 
-Supervised learning algorithms are divided into two categories based on the type of output:
+Los algoritmos de aprendizaje supervisado se dividen en dos categorías según el tipo de salida:
 
-**1) Classification Algorithms (Predict discrete categories)**
+**1) Classification Algorithms (Predecir categorías discretas)**
 - Logistic Regression  
 - Support Vector Machines (SVM)  
 - k-Nearest Neighbors (k-NN)  
 - Decision Trees  
 - Random Forest  
 - Naive Bayes  
-- Gradient Boosting (e.g., XGBoost, AdaBoost)
+- Gradient Boosting (XGBoost, AdaBoost, etc..)
 
-**2) Regression Algorithms (Predict continuous values)**
+**2) Regression Algorithms (Predecir valores continuos)**
 - Linear Regression  
 - Ridge/Lasso Regression  
 - Support Vector Regression (SVR)  
@@ -86,19 +86,19 @@ Supervised learning algorithms are divided into two categories based on the type
 
 ### Unsupervised Learning
 
-Unsupervised learning works with **unlabeled data**. The algorithm tries to find patterns, groupings, or structure in the data without knowing the correct output in advance.
+El aprendizaje no supervisado funciona con "datos no etiquetados". El algoritmo intenta encontrar patrones, agrupaciones o estructuras en los datos sin conocer de antemano el resultado correcto.
 
 <kbd><img src="images/Supervised-and-unsupervised.png" style="border:1px solid grey; border-radius:10px;"></kbd>
 
-📌 **Goal:** Discover hidden structures or relationships within the data  
-📌 **Example:** Segmenting customers into different groups based on their purchasing behavior  
-📌 **How to Recognize?:** No "target" column, or the goal is to group, compress, or summarize data
+📌 **Objetivo:** Descubrir estructuras o relaciones ocultas en los datos
+📌 **Ejemplo:** Segmentar a los clientes en diferentes grupos según su comportamiento de compra
+📌 **¿Cómo reconocerlo?** No hay una columna de "objetivo" o el objetivo es agrupar, comprimir o resumir los datos
 
-Unsupervised learning includes the following categories:
+El aprendizaje no supervisado incluye las siguientes categorías:
 
 #### 1) Clustering Algorithms 
 
-Clustering algorithms are used to automatically group data points into clusters based on similarity, without needing labeled data.
+Los algoritmos de agrupamiento se utilizan para agrupar automáticamente puntos de datos en grupos según su similitud, sin necesidad de datos etiquetados.
 
 - K-Means  
 - Hierarchical Clustering  
@@ -107,7 +107,7 @@ Clustering algorithms are used to automatically group data points into clusters 
 
 #### 2) Dimensionality Reduction Algorithms 
 
-Dimensionality reduction techniques simplify datasets by reducing the number of input features while preserving important information and patterns.
+Las técnicas de reducción de dimensionalidad simplifican los conjuntos de datos al reducir la cantidad de características de entrada y, al mismo tiempo, preservar información y patrones importantes.
 
 - Principal Component Analysis (PCA)  
 - t-SNE  
@@ -118,39 +118,39 @@ Dimensionality reduction techniques simplify datasets by reducing the number of 
 
 #### 3) Association Rule Learning 
 
-Association rule learning finds relationships and patterns between variables in large datasets.
+El aprendizaje de reglas de asociación encuentra relaciones y patrones entre variables en grandes conjuntos de datos.
 
 - Apriori  
 - Eclat
 
 ---
 
-All of these algorithms involve a lot of math and reasoning behind each one. This is one of the easiest parts to **implement**, but one of the hardest to **understand deeply**. To learn more, you can explore visual explanations, online tutorials, or dive into the theory to understand how and why they work under the hood.
+Todos estos algoritmos implican mucha matemática y razonamiento. Esta es una de las partes más fáciles de **implementar**, pero una de las más difíciles de **comprender a fondo**. Para aprender más, puedes explorar explicaciones visuales, tutoriales en línea o profundizar en la teoría para comprender cómo y por qué funcionan en la práctica.
 
-[Mathematical and Visual explanation of some algorithms](https://mlu-explain.github.io/)
+[Explicación matemática y visual de algunos algoritmos](https://mlu-explain.github.io/)
 
 
-### Other Types of Learning
+### Otros tipos de aprendizaje
 
-**Semi-Supervised Learning:** combines a small amount of labeled data with a large amount of unlabeled data. This is useful when labeling is expensive or time-consuming, and we still want to benefit from supervised learning.
+**Aprendizaje semisupervisado:** combina una pequeña cantidad de datos etiquetados con una gran cantidad de datos sin etiquetar. Esto es útil cuando el etiquetado es costoso o requiere mucho tiempo, y aun así queremos aprovechar las ventajas del aprendizaje supervisado.
 
-**Reinforcement Learning:** involves a model learning by interacting with an environment and receiving rewards or penalties. While it's less common in classical ML, it's widely used in areas like robotics, game-playing agents, and recommendation systems.
+**Aprendizaje por refuerzo:** implica que un modelo aprende interactuando con un entorno y recibiendo recompensas o penalizaciones. Aunque es menos común en el aprendizaje automático clásico, se utiliza ampliamente en áreas como la robótica, los agentes de videojuegos y los sistemas de recomendación.
 
-## 4. Training a Simple ML Model
+## 4. Entrenamiento de un modelo de aprendizaje automático simple
 
-Now comes the fun part—actually training a machine learning model!
+Ahora viene la parte divertida: ¡entrenar un modelo de aprendizaje automático!
 
-Once your data is cleaned, transformed, and ready, the coding process is surprisingly simple. In many cases, it only takes a single import and few lines of code to get started.
+Una vez que los datos estén limpios, transformados y listos, el proceso de codificación es sorprendentemente sencillo. En muchos casos, solo se necesita una sola importación y unas pocas líneas de código para comenzar.
 
-### Typical Steps in Training a Model:
+### Pasos típicos para entrenar un modelo:
 
-1. **Split the Data** – Divide your dataset into training and testing sets  
-2. **Define the Goal** – Determine whether your problem is *supervised* or *unsupervised*
-3. **Choose an Algorithm** – Based on your goal, select a few applicable models to try  
-4. **Train & Test** – Train the model on your training data, then test it on your unseen test data  
-5. **Evaluate Performance** – Use metrics like **accuracy**, **precision**, or **mean squared error** to decide which model performs best
+1. **Dividir los datos**: Divide tu conjunto de datos en conjuntos de entrenamiento y de prueba.
+2. **Define el objetivo**: Determina si tu problema es *supervisado* o *no supervisado*.
+3. **Elige un algoritmo**: Según tu objetivo, selecciona algunos modelos aplicables para probar.
+4. **Entrenamiento y prueba**: Entrena el modelo con tus datos de entrenamiento y luego pruébalo con los datos de prueba no vistos.
+5. **Evaluación del rendimiento**: Utiliza métricas como **exactitud**, **precisión** o **error cuadrático medio** para decidir qué modelo funciona mejor.
 
-It’s common to try multiple models and compare their performance before choosing the best one.
+Es común probar varios modelos y comparar su rendimiento antes de elegir el mejor.
 
 ---
 
@@ -161,113 +161,113 @@ from sklearn.model_selection import train_test_split
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.metrics import accuracy_score
 
-# Split data into training and testing sets
+# Dividir los datos en conjuntos de entrenamiento y prueba
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=5)
 
-# Create and train the model
+# Crear y entrenar al modelo.
 model = KNeighborsClassifier(n_neighbors=3)
 model.fit(X_train, y_train)
 
-# Make predictions and evaluate
+# Hacer predicciones y evaluar
 y_pred = model.predict(X_test)
 print("Accuracy:", accuracy_score(y_test, y_pred))
 ```
-## 5. Performance Metrics
+## 5. Métricas de Rendimiento
 
-After training a model, we need a way to measure how well it performs. This is where **performance metrics** come in. The right metric depends on your problem type and what matters most in your specific use case.
+Tras entrenar un modelo, necesitamos una forma de medir su rendimiento. Aquí es donde entran en juego las **métricas de rendimiento**. La métrica adecuada depende del tipo de problema y de lo que más importa en tu caso de uso específico.
 
-Not all “good” results mean the same thing. A model might look great on the surface but fail in areas that matter most for your goal.
-
-
-**Example 1: Email Spam Filter (Classification):**
-
-  Let’s say you're building a model to detect spam emails.
-
-  - **Accuracy** = How many emails the model got right overall  
-    If your model is 95% accurate, that sounds great… right?
-
-  But what if the model misses a lot of spam or, worse, marks real emails as spam?
-
-  That’s where two other metrics come in:
-
-  - **Precision** = Of the emails marked as spam, how many were actually spam?  
-    High precision means fewer **false alarms**.
-
-  - **Recall** = Of all the actual spam emails, how many did the model catch?  
-    High recall means fewer **missed spam**.
-
-  📌 **If missing spam is okay but marking real emails as spam is bad, go for high precision.**  
-  📌 **If catching all spam is critical (even if some real emails are marked incorrectly), go for high recall.**
+No todos los "buenos" resultados significan lo mismo. Un modelo puede parecer excelente a primera vista, pero fallar en las áreas más importantes para tu objetivo.
 
 
+**Ejemplo 1: Filtro de spam (Clasificación):**
 
-**Example 2: Predicting House Prices (Regression):**
+Supongamos que estás creando un modelo para detectar correos spam.
 
-  Now imagine you’re predicting house prices. The model says a house is worth **$300,000**, but the real value is **$310,000**. That’s a **$10,000 error**.
+- **Precisión** = Cuántos correos acertó el modelo en total.
+  Si tu modelo tiene una precisión del 95%, ¡genial!
 
-  We use these metrics to measure how far off the predictions are:
+Pero ¿qué pasa si el modelo omite mucho spam o, peor aún, marca correos reales como spam?
 
-  - **MAE (Mean Absolute Error)** = On average, how many dollars off are we?  
-  - **MSE (Mean Squared Error)** = Same idea, but **larger mistakes are punished more** because the errors are squared  
-  - **RMSE (Root Mean Squared Error)** = Like MSE, but puts the result back in the original units (like dollars)  
-  - **R² Score** = Quantifies how well a regression model's predictions align with the actual data points (closer to 1 is better)
+Aquí entran en juego otras dos métricas:
 
-  📌 **If small errors are okay**, use MAE.  
-  📌 **If big mistakes are really bad**, use MSE or RMSE to penalize them more.  
-  📌 **If you want to know how much variance your model explains**, use R².
+- **Precisión** = De los correos marcados como spam, ¿cuántos eran realmente spam?
+  Una alta precisión significa menos **falsas alarmas**.
 
-The goal is to always pick the metric that matches the **real-world impact** of your predictions. A good model in one case might be a poor fit for another, depending on what errors matter most.
+- **Recordatorio** = De todos los correos spam reales, ¿cuántos detectó el modelo?
+  Un alto recordatorio significa menos **spam omitido**.
 
-## 6. Cross-Validation
+📌 **Si no hay problema con no detectar el spam, pero marcar correos electrónicos reales como spam es un problema, opta por una alta precisión.**
+📌 **Si detectar todo el spam es fundamental (incluso si algunos correos electrónicos reales están marcados incorrectamente), opta por una alta capacidad de recuperación.**
 
-In our earlier example, we used a common approach: splitting the dataset into two parts—one for training and one for testing. While this is simple and widely used, there's a problem. A single train-test split can be **unreliable**, especially with smaller datasets. The model’s performance might vary significantly depending on how the data is divided.
 
-That’s where **Cross-Validation** comes in.
+
+**Ejemplo 2: Predicción del precio de la vivienda (Regresión):**
+
+Ahora imagina que estás prediciendo el precio de la vivienda. El modelo indica que una casa vale **$300,000**, pero el valor real es **$310,000**. Eso supone un **error de $10,000**.
+
+Utilizamos estas métricas para medir la desviación de las predicciones:
+
+- **MAE (Error Absoluto Medio)** = En promedio, ¿cuántos dólares nos desviamos? 
+- **MSE (Error Cuadrático Medio)** = La misma idea, pero **los errores más grandes se penalizan más** porque se elevan al cuadrado.
+- **RMSE (Error Cuadrático Medio)** = Similar al MSE, pero restablece el resultado en las unidades originales (como dólares).
+- **Puntuación R²** = Cuantifica qué tan bien se alinean las predicciones de un modelo de regresión con los datos reales (cuanto más cerca de 1, mejor).
+
+📌 **Si los errores pequeños son aceptables**, use MAE.
+📌 **Si los errores grandes son realmente graves**, use MSE o RMSE para penalizarlos más.
+📌 **Si desea saber cuánta varianza explica su modelo**, use R².
+
+El objetivo es elegir siempre la métrica que coincida con el **impacto real** de sus predicciones. Un buen modelo en un caso puede no ser adecuado para otro, dependiendo de qué errores sean más importantes.
+
+## 6. Validación cruzada
+
+En nuestro ejemplo anterior, utilizamos un enfoque común: dividir el conjunto de datos en dos partes: una para entrenamiento y otra para pruebas. Si bien esto es simple y ampliamente utilizado, presenta un problema. Una sola división entre entrenamiento y prueba puede ser **poco fiable**, especialmente con conjuntos de datos pequeños. El rendimiento del modelo puede variar significativamente según cómo se dividan los datos.
+
+Aquí es donde entra en juego la **Validación cruzada**.
 
 <kbd><img src="images/cross_validation.png" style="border:1px solid grey; border-radius:10px;"></kbd>
 
-Cross-validation is a more **robust and reliable** method for evaluating a machine learning model. Instead of training and testing the model just once, cross-validation splits the data into multiple parts (called **folds**). The model is trained and tested multiple times—each time using a different fold for testing and the remaining folds for training.
+La validación cruzada es un método más **robusto y fiable** para evaluar un modelo de aprendizaje automático. En lugar de entrenar y probar el modelo una sola vez, la validación cruzada divide los datos en varias partes (denominadas **folds**). El modelo se entrena y prueba varias veces, cada vez utilizando un fold diferente para las pruebas y el resto para el entrenamiento.
 
-In the end, you average the results from each run to get a more stable and accurate estimate of your model’s performance.
+Al final, se promedian los resultados de cada ejecución para obtener una estimación más estable y precisa del rendimiento del modelo.
 
-- Provides a **better estimate** of model performance  
-- Helps **prevent overfitting**  
-- **Reduces variance** caused by random train/test splits  
+- Proporciona una **mejor estimación** del rendimiento del modelo
+- Ayuda a **prevenir el sobreajuste**
+- **Reduce la varianza** causada por divisiones aleatorias entre entrenamiento y prueba
 
-Cross-validation is especially important when you’re tuning hyperparameters or comparing different models. It ensures that the performance you're seeing isn't just a result of a "lucky" data split.
+La validación cruzada es especialmente importante al ajustar hiperparámetros o comparar diferentes modelos. Garantiza que el rendimiento observado no sea solo el resultado de una división fortuita de datos.
 
-## 7. Model Evaluation & Hyperparameter Tuning
+## 7. Evaluación del Modelo y Ajuste de Hiperparámetros
 
-Training a model is just the beginning. After that, the next steps are:
+Entrenar un modelo es solo el comienzo. Después, los siguientes pasos son:
 
-- **Evaluate how well it performs**  
-- **Improve it through tuning**
+- **Evaluar su rendimiento**
+- **Mejorarlo mediante ajustes**
 
 ---
 
-### Model Evaluation
+### Evaluación del Modelo
 
-Once you've chosen a model and trained it, you need to evaluate how well it's performing. This means looking at the **performance metrics** (like accuracy, precision, or MAE) and checking for issues such as:
+Una vez elegido un modelo y entrenado, es necesario evaluar su rendimiento. Esto implica analizar las **métricas de rendimiento** (como la exactitud, la precisión o el MAE) y detectar problemas como:
 
-- **Overfitting** – The model performs very well on training data but poorly on unseen data  
-- **Underfitting** – The model performs poorly on both training and testing data because it hasn’t learned enough  
+- **Sobreajuste**: El modelo funciona muy bien con los datos de entrenamiento, pero mal con los datos no analizados.
+- **Subajuste**: El modelo funciona mal tanto con los datos de entrenamiento como con los de prueba porque no ha aprendido lo suficiente.  
 
 <kbd><img src="images/OverfitingvsUnderfitting.svg" style="border:1px solid grey; border-radius:10px;"></kbd>
 
-In this figure, the lines represent our model (or function), and the dots are our data points. Each scenario shows how well the model is able to generalize (how well it can make accurate predictions on new, unseen data.)
+En esta figura, las líneas representan nuestro modelo (o función) y los puntos son nuestros datos. Cada escenario muestra la capacidad de generalización del modelo (su capacidad para realizar predicciones precisas con datos nuevos e inéditos).
 
-This means that when we introduce a new data point that the model hasn't seen before, we want the model to make a prediction that is as close as possible to the true value.
+Esto significa que, al introducir un nuevo dato que el modelo no ha visto antes, queremos que realice una predicción lo más cercana posible al valor real.
 
-- In the overfitting case, the model is too complex and tries to fit every single point in the training data, even the noise. While it may perform very well on the training set, it fails to generalize and performs poorly on new data.
+- En el caso de sobreajuste, el modelo es demasiado complejo e intenta ajustar cada punto de los datos de entrenamiento, incluso el ruido. Si bien puede funcionar muy bien con el conjunto de entrenamiento, no logra generalizar y su rendimiento es deficiente con datos nuevos.
 
-- In the underfitting case, the model is too simple and doesn't capture the underlying pattern in the data. It performs poorly on both the training data and new data because it hasn’t learned enough.
+- En el caso de subajuste, el modelo es demasiado simple y no captura el patrón subyacente en los datos. Su rendimiento es deficiente tanto con los datos de entrenamiento como con los nuevos porque no ha aprendido lo suficiente.
 
-- In the ideal fit, the model captures the true underlying pattern without overcomplicating things. It performs well on both the training data and new data, showing good generalization.
+- En el ajuste ideal, el modelo captura el verdadero patrón subyacente sin complicar las cosas. Su rendimiento es bueno tanto con los datos de entrenamiento como con los nuevos, mostrando una buena generalización.
 
-The goal is to find the right balance, where the model is just complex enough to learn the important patterns but not so complex that it memorizes the data.
+El objetivo es encontrar el equilibrio adecuado, donde el modelo sea lo suficientemente complejo como para aprender los patrones importantes, pero no tan complejo como para memorizar los datos.
 
-**How to implement:**
-To spot these issues, use graphs like Accuracy or Error curves during training.
+**Cómo implementar:**
+Para detectar estos problemas, utilice gráficos como las curvas de precisión o error durante el entrenamiento.
 
 <kbd><img src="images/OvsUGraph.jpeg" style="border:1px solid grey; border-radius:10px;"></kbd>
 
@@ -278,22 +278,23 @@ from sklearn.model_selection import learning_curve
 from sklearn.datasets import load_iris
 from sklearn.linear_model import LogisticRegression
 
-# Load data
-X, y = load_iris(return_X_y=True)
+# Tenemos nuestras características y objetivo
+X = df.drop[columns='target']
+y = df['target']
 
-# Choose a simple model
+# Elige un modelo simple
 model = LogisticRegression(max_iter=200)
 
-# Get learning curve data
+# Obtener datos de la curva de aprendizaje
 train_sizes, train_scores, val_scores = learning_curve(
     model, X, y, cv=5, scoring='accuracy'
 )
 
-# Compute average scores across folds
+# Calcular puntuaciones promedio en todos los pliegues
 train_scores_mean = np.mean(train_scores, axis=1)
 val_scores_mean = np.mean(val_scores, axis=1)
 
-# Plot
+# Trazar los gráficos
 plt.plot(train_sizes, train_scores_mean, label='Training Score')
 plt.plot(train_sizes, val_scores_mean, label='Validation Score')
 plt.xlabel('Training Set Size')
@@ -305,18 +306,18 @@ plt.show()
 ```
 ---
 
-### Hyperparameter Tuning
+### Ajuste de hiperparámetros
 
-Every model has settings you can adjust, called *hyperparameters*. These are not learned from the data but are defined before training begins.
+Cada modelo tiene parámetros ajustables, llamados *hiperparámetros*. Estos no se aprenden de los datos, sino que se definen antes de comenzar el entrenamiento.
 
-#### Example:  
-For *K-Nearest Neighbors (KNN)*, a key hyperparameter is:
+#### Ejemplo:
+Para *K-Nearest Neighbors (KNN)*, un hiperparámetro clave es:
 
-- `n_neighbors`: How many nearby points should the model consider?
+- `n_neighbors`: ¿Cuántos puntos cercanos debe considerar el modelo?
 
-You can try different values like 3, 5, or 7 and compare their accuracy.
+Puede probar diferentes valores, como 3, 5 o 7, y comparar su precisión.
 
-### Common Hyperparameters by Model
+### Hiperparámetros comunes por modelo
 
 | Model              | Common Hyperparameters                    |
 |-------------------|--------------------------------------------|
@@ -326,26 +327,26 @@ You can try different values like 3, 5, or 7 and compare their accuracy.
 | SVM                | `C`, `kernel`, `gamma`                     |
 | Gradient Boosting  | `learning_rate`, `n_estimators`, `max_depth` |
 
-The hardest part about hyperparameter tuning is understanding **which hyperparameters to tune and why**. This requires a deeper understanding of how each machine learning algorithm works internally and going into that would take too long for this presentation.
+La parte más difícil del ajuste de hiperparámetros es comprender **qué hiperparámetros ajustar y por qué**. Esto requiere una comprensión más profunda del funcionamiento interno de cada algoritmo de aprendizaje automático, y profundizar en ello sería demasiado extenso para esta presentación.
 
-Instead, I recommend starting simple:  
-Pick **one algorithm** you're using, and look it up online to see what it is and how it works, then search **Scikit-learn's documentation** to see what hyperparameters are available and what they control.
+En su lugar, recomiendo empezar por algo sencillo:
 
-Focus on understanding a **few key hyperparameters** that commonly affect the model’s behavior, and experiment by changing their values slightly. This helps you see how small adjustments can impact the model’s accuracy, overfitting, or underfitting.
+Elige **un algoritmo** que estés usando y búscalo en línea para ver qué es y cómo funciona. Luego, consulta la **documentación de Scikit-learn** para ver qué hiperparámetros están disponibles y qué controlan.
 
-As you grow more comfortable, you'll begin to recognize which hyperparameters matter most for different types of problems.
+Céntrate en comprender algunos **hiperparámetros clave** que suelen afectar el comportamiento del modelo y experimenta modificando ligeramente sus valores. Esto te ayudará a ver cómo pequeños ajustes pueden afectar la precisión, el sobreajuste o el subajuste del modelo.
 
-For now, just remember:
-- **Hyperparameters** are settings you define before training your model (like`n_neighbors` in KNN).
-- They are different from **parameters**, which are learned by the model during training.
+A medida que te sientas más cómodo, empezarás a reconocer qué hiperparámetros son más importantes para los diferentes tipos de problemas.
 
-### How to Tune?
+Por ahora, solo recuerda:
+- Los **hiperparámetros** son ajustes que defines antes de entrenar tu modelo (como `n_neighbors` en KNN). - Son diferentes de los **parámetros**, que el modelo aprende durante el entrenamiento.
 
-We usually combine hyperparameter tuning with **Cross-Validation**, using tools like **Grid Search**.
+### ¿Cómo ajustar?
 
-Grid Search is a method that automatically tests all possible combinations of hyperparameter values to find the best-performing model configuration.
+Normalmente combinamos el ajuste de hiperparámetros con la **Validación cruzada**, utilizando herramientas como la **Grid Search**.
 
-#### Grid Search Example:
+La Búsqueda en cuadrícula es un método que prueba automáticamente todas las combinaciones posibles de valores de hiperparámetros para encontrar la configuración del modelo con mejor rendimiento.
+
+#### Ejemplo de Gridsearch:
 
 ```python
 from sklearn.model_selection import GridSearchCV
@@ -359,31 +360,31 @@ print("Best Parameters:", grid.best_params_)
 print("Best Score:", grid.best_score_)
 ```
 
-## 8. Conclusion & Next Steps
+## 8. Conclusión y próximos pasos
 
-At this point, you've gone through the **entire machine learning process** from start to finish:
+En este punto, has completado **todo el proceso de aprendizaje automático** de principio a fin:
 
-- You explored and cleaned your data  
-- You transformed it to make it model-ready  
-- You chose the right algorithms  
-- You trained and evaluated multiple models  
-- You tuned them to improve performance  
+- Exploraste y depuraste tus datos
+- Los transformaste para que estuvieran listos para el modelo
+- Elegiste los algoritmos adecuados
+- Entrenaste y evaluaste múltiples modelos
+- Los ajustaste para mejorar el rendimiento
 
-Now all that’s left is to **communicate your results** in a way that’s clear and impactful. Whether it's through a dashboard, a report, or a  slideshow. Presenting your findings effectively is the final step that shows the value of everything you've done.
+Ahora solo queda **comunicar tus resultados** de forma clara e impactante, ya sea mediante un panel, un informe o una presentación. Presentar tus hallazgos eficazmente es el paso final que demuestra el valor de todo lo que has hecho.
 
 
-#### What's Next:
+#### ¿Qué sigue?
 
-Now that you've completed the full modeling cycle, from preparing data to training, evaluating, and tuning models. You’ve built a solid foundation in classical machine learning.
+Ahora que ha completado el ciclo completo de modelado, desde la preparación de datos hasta el entrenamiento, la evaluación y el ajuste de los modelos, ha construido una base sólida en el aprendizaje automático clásico.
 
-In the next presentation, we’ll take things further by diving deeper into several key topics we’ve touched on and explore new concepts.
+En la próxima presentación, profundizaremos en varios temas clave que hemos abordado y exploraremos nuevos conceptos.
 
-We’ll look at **advanced data cleaning techniques** for handling messy, real-world datasets, including smarter methods for dealing with outliers, missing values, and noisy data.
+Analizaremos **técnicas avanzadas de limpieza de datos** para gestionar conjuntos de datos reales desordenados, incluyendo métodos más inteligentes para gestionar valores atípicos, valores faltantes y datos con ruido.
 
-You’ll also be introduced to **dimensionality reduction techniques**, such as **Principal Component Analysis (PCA)**, which help simplify complex datasets while preserving the most important information.
+También se presentarán **técnicas de reducción de dimensionalidad**, como el **Análisis de Componentes Principales (PCA)**, que ayudan a simplificar conjuntos de datos complejos a la vez que preservan la información más importante.
 
-We’ll also introduce **neural networks**, explaining how they mimic the brain to solve more complex problems and why they’ve become the foundation of modern artificial intelligence.
+También presentaremos las **neural networks**, explicando cómo imitan el cerebro para resolver problemas más complejos y por qué se han convertido en la base de la inteligencia artificial moderna.
 
-Finally, we’ll cover **pipelines**, which help automate and organize the entire machine learning workflow.
+Por último, cubriremos los **pipelines**, que ayudan a automatizar y organizar todo el flujo de trabajo de aprendizaje automático.
 
 
